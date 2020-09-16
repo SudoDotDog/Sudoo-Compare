@@ -1,2 +1,3 @@
 # Sudoo-Compare
-:beetle: A object comparation package
+
+:beetle: A object comparison package
