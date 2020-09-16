@@ -1,20 +1,20 @@
 {
 	"name": "@sudoo/compare",
-	"version": "1.1.0",
-	"description": ":guardsman: Password utils",
+	"version": "1.0.0",
+	"description": ":beetle: A object comparison package",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/SudoDotDog/Sudoo-Password.git"
+		"url": "git+https://github.com/SudoDotDog/Sudoo-Compare.git"
 	},
 	"keywords": [
-		"Password"
+		"Compare"
 	],
 	"author": "WMXPY",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/SudoDotDog/Sudoo-Password/issues"
+		"url": "https://github.com/SudoDotDog/Sudoo-Compare/issues"
 	},
-	"homepage": "https://github.com/SudoDotDog/Sudoo-Password#readme",
+	"homepage": "https://github.com/SudoDotDog/Sudoo-Compare#readme",
 	"devDependencies": {
 		"@sudoo/io": "^1.8.0",
 		"@sudoo/triforce": "^2.8.7"
