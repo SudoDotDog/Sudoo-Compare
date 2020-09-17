@@ -21,6 +21,14 @@ export class ResultCreator {
         this._stack = initialStack;
     }
 
+    public get length(): number {
+        return this._stack.length;
+    }
+
+    public getStack(): string[] {
+        return this._stack;
+    }
+
     public down(step: string): ResultCreator {
 
         return new ResultCreator([
