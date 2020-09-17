@@ -5,7 +5,7 @@
  */
 
 import { CompareResult } from "./declare";
-import { createCompareResult } from "./result";
+import { createCompareResult } from "./util";
 
 export const compare = (
     left: any,
