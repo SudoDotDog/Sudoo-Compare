@@ -6,5 +6,6 @@
 
 export * from "./compare";
 export * from "./declare";
-export * from "./result";
+export * from "./result-creator";
 export * from "./util";
+

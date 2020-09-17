@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Compare
- * @description Result
+ * @description Result Creator
  */
 
 import { CompareResult } from "./declare";
