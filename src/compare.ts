@@ -5,9 +5,13 @@
  */
 
 import { CompareResult } from "./declare";
-import { createCompareResult } from "./util";
+import { createCompareResult } from "./result";
 
-export const compare = (left: any, right: any): CompareResult[] => {
+export const compare = (
+    left: any,
+    right: any,
+    initialStack: string[] = [],
+): CompareResult[] => {
 
     const results: CompareResult[] = [];
 
@@ -21,6 +25,23 @@ export const compare = (left: any, right: any): CompareResult[] => {
 
     const leftKeys: Set<string> = new Set(Object.keys(left));
     const rightKeys: Set<string> = new Set(Object.keys(right));
+
+    for (const currentKey of leftKeys) {
+
+        if (!rightKeys.has(currentKey)) {
+
+            results.push(
+                createCompareResult(
+                    [
+                        ...initialStack,
+                        currentKey,
+                    ],
+                    left[currentKey],
+                    undefined,
+                ),
+            );
+        }
+    }
 
     return results;
 };
