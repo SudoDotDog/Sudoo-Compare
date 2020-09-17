@@ -5,7 +5,7 @@
  */
 
 import { CompareResult } from "./declare";
-import { createCompareResult } from "./util";
+import { ResultCreator } from "./result-creator";
 
 export const compare = (
     left: any,
@@ -14,32 +14,42 @@ export const compare = (
 ): CompareResult[] => {
 
     const results: CompareResult[] = [];
+    const resultCreator: ResultCreator = ResultCreator.create(initialStack);
 
     if (typeof left !== 'object' || typeof right !== 'object') {
 
         if (left === right) {
             return [];
         }
-        return [createCompareResult([], left, right)];
+        return [resultCreator.result(left, right)];
     }
 
     const leftKeys: Set<string> = new Set(Object.keys(left));
     const rightKeys: Set<string> = new Set(Object.keys(right));
 
+    const commonKeys: Set<string> = new Set();
+
     for (const currentKey of leftKeys) {
 
+        const currentResultCreator: ResultCreator = resultCreator.down(currentKey);
         if (!rightKeys.has(currentKey)) {
-
             results.push(
-                createCompareResult(
-                    [
-                        ...initialStack,
-                        currentKey,
-                    ],
-                    left[currentKey],
-                    undefined,
-                ),
+                currentResultCreator.result(left[currentKey], undefined),
             );
+        } else {
+            commonKeys.add(currentKey);
+        }
+    }
+
+    for (const currentKey of rightKeys) {
+
+        const currentResultCreator: ResultCreator = resultCreator.down(currentKey);
+        if (!leftKeys.has(currentKey)) {
+            results.push(
+                currentResultCreator.result(undefined, right[currentKey]),
+            );
+        } else {
+            commonKeys.add(currentKey);
         }
     }
 
