@@ -6,7 +6,7 @@
 
 import { CompareResult } from "./declare";
 
-export const compareObject = (): CompareResult[] => {
+export const compareObject = (left: any, right: any): CompareResult[] => {
 
     return [];
 };
