@@ -5,8 +5,17 @@
  */
 
 import { CompareResult } from "./declare";
+import { createCompareResult } from "./util";
 
-export const compareObject = (left: any, right: any): CompareResult[] => {
+export const compare = (left: any, right: any): CompareResult[] => {
+
+    if (typeof left !== 'object' || typeof right !== 'object') {
+        if (left === right) {
+            return [];
+        }
+
+        return [createCompareResult([], left, right)];
+    }
 
     return [];
 };

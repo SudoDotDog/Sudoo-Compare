@@ -7,7 +7,7 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { compareObject, CompareResult } from '../../src';
+import { compare, CompareResult } from '../../src';
 
 describe('Given [Compare] Helper methods', (): void => {
 
@@ -16,7 +16,8 @@ describe('Given [Compare] Helper methods', (): void => {
 
     it('should be able to return empty value', (): void => {
 
-        const result: CompareResult[] = compareObject();
+        const value: string = chance.string();
+        const result: CompareResult[] = compare(value, value);
 
         expect(result).to.be.lengthOf(0);
     });
