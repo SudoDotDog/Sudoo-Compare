@@ -53,5 +53,13 @@ export const compare = (
         }
     }
 
+    for (const currentKey of commonKeys) {
+
+        const currentResultCreator: ResultCreator = resultCreator.down(currentKey);
+        const currentCompareResult: CompareResult[] = compare(left[currentKey], right[currentKey], currentResultCreator.getStack());
+
+        results.push(...currentCompareResult);
+    }
+
     return results;
 };
