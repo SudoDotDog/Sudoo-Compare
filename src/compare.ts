@@ -24,6 +24,14 @@ export const compare = (
         return [resultCreator.result(left, right)];
     }
 
+    if (left instanceof Date && right instanceof Date) {
+
+        if (left.toString() === right.toString()) {
+            return [];
+        }
+        return [resultCreator.result(left, right)];
+    }
+
     const leftKeys: Set<string> = new Set(Object.keys(left));
     const rightKeys: Set<string> = new Set(Object.keys(right));
 
