@@ -32,3 +32,24 @@ const secondObject: Record<string, string> = {
 
 const result: CompareResult[] = compare(firstObject, secondObject);
 ```
+
+By running the able code, your `result` variable to get a list of result that indicate the difference between two objects.
+
+```ts
+[
+  {
+    keyStack: [ 'extra' ],
+    keyString: 'extra',
+    left: undefined,
+    right: 'extra',
+  },
+  { 
+    keyStack: [ 'foo' ],
+    keyString: 'foo',
+    left: 'bar',
+    right: 'baz',
+  },
+]
+```
+
+If two objects are same, the `result` list will be empty.
