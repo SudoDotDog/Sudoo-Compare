@@ -1,7 +1,7 @@
 {
 	"name": "@sudoo/compare",
 	"version": "1.0.0",
-	"description": ":beetle: A object comparison package",
+	"description": "A object comparison package",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SudoDotDog/Sudoo-Compare.git"
